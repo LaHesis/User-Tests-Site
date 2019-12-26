@@ -1,0 +1,6 @@
+.vscode
+*.pyc
+__pycache__
+UTEnv
+db.sqlite3
+secret_key.txt
