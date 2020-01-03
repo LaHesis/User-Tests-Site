@@ -56,7 +56,7 @@ ROOT_URLCONF = 'user_tests.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'base_templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,3 +121,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'base_static')
+]
+
+TIME_INPUT_FORMATS = (
+    '%H:%M:%S',
+    '%H:%M:%S.%f',
+    '%M:%S',
+)
+
+DATE_FORMAT = 'd.m.Y'           # 18.09.2009.
+DATETIME_FORMAT = 'd.m.Y H:i'   # 18.09.2009 22:41.
+TIME_FORMAT = 'H:i'
