@@ -35,7 +35,7 @@
                     <h3>Поиск тестов</h3>
                     <form action="POST">
                         <input class="form-control" name="search" type="search"><br>
-                        <div class="search-buttons-div table center-block">
+                        <div class="search-buttons-div table mx-auto">
                             <div class="table_row">
                                 <div class="table-cell">
                                     <button type="submit" class="btn btn-light btn-sm" role=submit>Искать в
@@ -51,35 +51,41 @@
                     </form>
                 </div>
 
-                <div class="col-md-3 header-element">
+                <div class="col-md-2 header-element">
                     {% if user.is_authenticated %}
-                    <div class="center-block text-center user-container">
+                    <div class="mx-auto text-center user-container">
                         <span class="">Пользователь: <br>{{ user.username }}</span>
-                        <div class="avatar_container center-block">
+                        <div class="avatar_container mx-auto">
                             <img class="img-thumbnail thumbnail" src="{% static 'main/img/default_avatar.png' %}">
                         </div>
                     </div>
                     {% else %}
                     <small>
-                        <p>Вы в гостевом режиме.<br>Зарегистрируйтесь и войдите в систему, чтобы для добавления тестов и
+                        <p>Вы в гостевом режиме.<br>Зарегистрируйтесь и войдите в систему для добавления тестов и
                             просмотра статистики.</p>
                     </small>
                     {% endif %}
                 </div>
 
-                <div class="col-md-3 header-element">
-                    <div class="table">
+                <div class="col-md-4 header-element">
+                    <div class="table mx-auto">
                         <div class="table_row">
                             {% if user.is_authenticated %}
                             <div class="table-cell">
                                 <a href="#" class="btn btn-light">Ваши тесты</a>
+                            </div>
+                            <div class="table-cell">
                                 <a href="#" class="btn btn-light">Новый тест</a>
                             </div>
-
+                        </div>
+                        <div class="table_row">
                             <div class="table-cell">
                                 <a href="#" class="btn btn-light">Ваши результаты</a>
+                            </div>
+                            <div class="table-cell">
                                 <a href="#" class="btn btn-light">Выйти</a>
                             </div>
+                        </div>
                             {% else %}
                             <div class="table-cell">
                                 <label for="username">Логин:</label>
