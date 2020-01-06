@@ -11,6 +11,7 @@
     {% bootstrap_css %}
     <link href="https://fonts.googleapis.com/css?family=Cuprum|Neucha&subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'main/css/static_test_list_style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/animate.css' %}">
     {% bootstrap_javascript jquery='full' %}
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -24,96 +25,98 @@
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-md-3 header-element">
+                <div class="col-lg-3 col-md-6 d-none d-md-block header-element header-element-1 animated infinite">
                     <a href="{% url 'static_test_list' %}">
-                        <h2 class="text-left">UserTests</h2>
-                        <p>Сайт-платформа для создания и прохождения тестов</p>
+                        <div class="text-left logo animated infinite">UserTests</div>
+                        <p>Площадка для создания<br> и прохождения тестов</p>
                     </a>
                 </div>
 
-                <div class="col-md-3 header-element">
+                <div class="col-lg-3 col-md-6 col-12 header-element header-element-2">
                     <h3>Поиск тестов</h3>
-                    <form action="POST">
-                        {% csrf_token %}
+                    <form name="search_form" action="POST">
+{% csrf_token %}
                         <input class="form-control" name="search" type="search"><br>
                         <div class="search-buttons-div table mx-auto">
                             <div class="table-row">
                                 <div class="table-cell">
-                                    <button type="submit" class="btn btn-light btn-sm" role=submit>Искать в
-                                        именах</button>
+                                    <button type="submit" class="btn btn-light" role=submit>По именам</button>
                                 </div>
-                                <div class="empty_gap_cell table-cell"></div>
+                                <div class="empty-gap-cell table-cell"></div>
                                 <div class="table-cell">
-                                    <button type="submit" class="btn btn-light btn-sm" role=submit>Искать в
-                                        вопросах</button>
+                                    <button type="submit" class="btn btn-light" role=submit>По вопросам</button>
                                 </div>
                             </div>
                         </div>
                     </form>
                 </div>
 
-                <div class="col-md-2 header-element">
-                    {% if user.is_authenticated %}
+                <div class="col-lg-2 col-md-6 col-6 header-element header-element-3">
+{% if user.is_authenticated %}
                     <div class="mx-auto text-center user-container">
-                        <span class="">Пользователь: <br>{{ user.username }}</span>
-                        <div class="avatar_container mx-auto">
+                        <small><span>Пользователь: {{ user.username }}</span></small>
+                        <div class="avatar-container mx-auto">
                             <img class="img-thumbnail thumbnail" src="{% static 'main/img/default_avatar.png' %}">
                         </div>
                     </div>
-                    {% else %}
+{% else %}
                     <small>
                         <p>Вы в гостевом режиме.<br>Зарегистрируйтесь и войдите в систему для добавления тестов и
                             просмотра статистики.</p>
                     </small>
-                    {% endif %}
+{% endif %}
                 </div>
 
-                <div class="col-md-4 header-element">
-                    <div class="table mx-auto">
-                        <div class="table-row">
-                            {% if user.is_authenticated %}
-                            <div class="table-cell">
-                                <a href="#" class="btn btn-light">Ваши тесты</a>
-                            </div>
-                            <div class="table-cell">
-                                <a href="#" class="btn btn-light">Новый тест</a>
-                            </div>
-                        </div>
-                        <div class="table-row">
-                            <div class="table-cell">
-                                <a href="#" class="btn btn-light">
-                                    Ваши результаты</a>
-                            </div>
-                            <div class="table-cell">
-                                <a href="#" class="btn btn-light">Выйти</a>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#" class="btn btn-light">Пользователи системы</a>
-                            {% else %}
-                    <div class="table mx-auto">
-                        <form method="POST">
+                <div class="col-lg-4 col-md-6 col-6 header-element header-element-4">
+                    <div class="all-buttons-container">
+{% if user.is_authenticated %}
+                        <div class="table mx-auto">
                             <div class="table-row">
                                 <div class="table-cell">
-                                    <label for="username">Логин:</label>
-                                    <input class="form-control" name="username" type="text">
+                                    <a href="#" class="btn btn-light">Ваши тесты</a>
                                 </div>
                                 <div class="table-cell">
-                                    <label for="password">Пароль:</label>
-                                    <input class="form-control" name="password" type="password">
+                                    <a href="#" class="btn btn-light">Новый тест</a>
                                 </div>
                             </div>
                             <div class="table-row">
-                                {% csrf_token %}
-                                    <div class="table-cell"><a href="#" class="btn btn-light">Войти</a></div>
-                                    <div class="table-cell"><a href="#" class="btn btn-light">Регистрация</a></div>
-                            {% endif %}
+                                <div class="table-cell">
+                                    <a href="#" class="btn btn-light">
+                                        Результаты</a>
+                                </div>
+                                <div class="table-cell">
+                                    <a href="#" class="btn btn-light">Выйти</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="system-users-button-container">
+                            <a href="#" class="btn btn-light">Пользователи системы</a>
+                        </div>
+{% else %}
+                        <form name="login_form" method="POST">
+{% csrf_token %}
+                            <div class="table mx-auto">
+                                    <div class="table-row">
+                                        <div class="table-cell">
+                                            <label for="username">Логин:</label>
+                                            <input class="form-control" name="username" type="text">
+                                        </div>
+                                        <div class="table-cell">
+                                            <label for="password">Пароль:</label>
+                                            <input class="form-control" name="password" type="password">
+                                        </div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-cell"><a href="#" class="btn btn-light">Войти</a></div>
+                                        <div class="table-cell"><a href="#" class="btn btn-light">Регистрация</a></div>
+                                    </div>
+{% endif %}
                             </div>
                         </form>
                     </div>
-                </div>
-            </div>
-        </div>
+                </div> <!-- header-element end -->
+            </div> <!-- row flex end -->
+        </div> <!-- div.container end -->
     </header>
 
     <div class="content container">
