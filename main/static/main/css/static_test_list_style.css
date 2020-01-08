@@ -50,8 +50,8 @@ h6 {
     border-radius: 10px; }
 
 input.form-control {
-  padding: 0.175rem 0.45rem;
-  height: calc(1.2em + .75rem + 2px);
+  padding: 0.8rem 0.3rem;
+  height: calc(1em + .5rem + 2px);
   line-height: 1.2;
   border-color: #0b583c; }
   input.form-control:focus {
@@ -65,7 +65,12 @@ header {
   border: 1px solid #0b583c;
   border-radius: 0 0 20px 20px;
   -webkit-box-shadow: 0 4px 2px 0 #777777;
-          box-shadow: 0 4px 2px 0 #777777; }
+          box-shadow: 0 4px 2px 0 #777777;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10; }
   header .row {
     padding: 0; }
   header .header-element {
@@ -81,8 +86,8 @@ header {
               animation-duration: 2s;
       font-family: "Neucha", cursive;
       font-size: 2.7rem;
-      margin-bottom: -5px;
-      margin-top: -4px; }
+      margin-bottom: -10px;
+      margin-top: -5px; }
     header .header-element-1 p {
       font-size: 150%;
       margin-bottom: 0;
@@ -141,9 +146,13 @@ footer {
   -webkit-box-shadow: 0 -2px 3px 0 #777;
           box-shadow: 0 -2px 3px 0 #777;
   background-color: #e5f8f1;
-  width: 100%; }
+  width: 100%;
+  z-index: 10;
+  position: fixed; }
   footer .badge {
     cursor: default;
+    color: #222222;
+    background-color: #cccccc;
     font-size: 16px; }
 
 .test-list .test {
