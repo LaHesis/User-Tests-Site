@@ -76,6 +76,13 @@ input.form-control
   &+br
     display: none
 
+.badge
+  cursor: default
+  color: #fff
+  background-color: $intface-panel-secondary-color
+  font-size: .8rem
+  margin-right: 5px
+
 // ШАПКА
 $avatar-width: 90px
 $avatar-height: 90px
@@ -183,19 +190,31 @@ footer
   z-index: 10
   position: fixed
   .badge
-    cursor: default
-    color: #222222
-    background-color: #cccccc
-    font-size: 16px
+    font-size: 1.2rem
 
 // КОНТЕНТ
-.test-list
-  .test
-    border: 2px solid orange
-    border-radius: 10px
+.content
+  a,
+  .badge
+    cursor: pointer
+  .tests-list h2 a
+    font-family: inherit
+  a.test:hover, a.category:hover, h2:hover a
+    transition: all ease .2s
+    font-weight: bold
+    color: $links-color
+  a.test:hover .badge, a.category:hover .badge
+    transition: all ease .2s
+    background-color: $links-color
+  ul.pagination
+    margin: 2px 0 0 10px
+    width: auto
 
 // АДАПТИВ
 @media(min-width: 0) and (max-width: 767px)
+  .content
+    padding-top: 200px
+    padding-bottom: 0
   .header-element
     border-style: none
   .header-element-2
@@ -204,6 +223,9 @@ footer
     border-right: 1px dashed $intface-panel-secondary-color
 
 @media(min-width:768px) and (max-width: 991px)
+  .content
+    padding-top: 200px
+    padding-bottom: 0
   .header-element
     border-style: none
   .header-element-1
@@ -215,16 +237,18 @@ footer
     border-right: 1px dashed $intface-panel-secondary-color
 
 @media(min-width:992px) and (max-width: 1199px)
-  .header
-    position: fixed
+  .content
+    padding-top: 120px
+    padding-bottom: 0
   .header-element
     border-style: none
   .header-element:not(:last-of-type)
     border-right: 1px dashed $intface-panel-secondary-color
 
 @media(min-width: 1200px)
-  .header
-    position: fixed
+  .content
+    padding-top: 120px
+    padding-bottom: 0
   .header-element
     border-style: none
   .header-element:not(:last-of-type)

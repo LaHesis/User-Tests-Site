@@ -60,6 +60,13 @@ input.form-control {
   input.form-control + br {
     display: none; }
 
+.badge {
+  cursor: default;
+  color: #fff;
+  background-color: #0b583c;
+  font-size: 0.8rem;
+  margin-right: 5px; }
+
 header {
   background-color: #e5f8f1;
   border: 1px solid #0b583c;
@@ -150,16 +157,31 @@ footer {
   z-index: 10;
   position: fixed; }
   footer .badge {
-    cursor: default;
-    color: #222222;
-    background-color: #cccccc;
-    font-size: 16px; }
+    font-size: 1.2rem; }
 
-.test-list .test {
-  border: 2px solid orange;
-  border-radius: 10px; }
+.content a,
+.content .badge {
+  cursor: pointer; }
+.content .tests-list h2 a {
+  font-family: inherit; }
+.content a.test:hover, .content a.category:hover, .content h2:hover a {
+  -webkit-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+  font-weight: bold;
+  color: #000e5c; }
+.content a.test:hover .badge, .content a.category:hover .badge {
+  -webkit-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+  background-color: #000e5c; }
+.content ul.pagination {
+  margin: 2px 0 0 10px;
+  width: auto; }
 
 @media(min-width: 0) and (max-width: 767px) {
+  .content {
+    padding-top: 200px;
+    padding-bottom: 0; }
+
   .header-element {
     border-style: none; }
 
@@ -169,6 +191,10 @@ footer {
   .header-element-3 {
     border-right: 1px dashed #0b583c; } }
 @media(min-width:768px) and (max-width: 991px) {
+  .content {
+    padding-top: 200px;
+    padding-bottom: 0; }
+
   .header-element {
     border-style: none; }
 
@@ -182,8 +208,9 @@ footer {
   .header-element-3 {
     border-right: 1px dashed #0b583c; } }
 @media(min-width:992px) and (max-width: 1199px) {
-  .header {
-    position: fixed; }
+  .content {
+    padding-top: 120px;
+    padding-bottom: 0; }
 
   .header-element {
     border-style: none; }
@@ -191,8 +218,9 @@ footer {
   .header-element:not(:last-of-type) {
     border-right: 1px dashed #0b583c; } }
 @media(min-width: 1200px) {
-  .header {
-    position: fixed; }
+  .content {
+    padding-top: 120px;
+    padding-bottom: 0; }
 
   .header-element {
     border-style: none; }
