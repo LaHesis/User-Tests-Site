@@ -108,7 +108,8 @@ header
 
   // background-color: rgba(0, 0, 0, 0.1)
   .header-element-1
-    padding-left: 10px
+    padding-left: 15px
+    text-align: center
     *
       color: $links-color
     .logo
@@ -124,7 +125,7 @@ header
       font-family: $header-font
     &:hover
       .logo
-        animation-name: flash
+        animation-name: headShake
 
   .header-element-2
     h3
@@ -191,6 +192,7 @@ footer
   position: fixed
   .badge
     font-size: 1.2rem
+    margin: 2px
 
 // КОНТЕНТ
 .content
@@ -207,48 +209,63 @@ footer
     transition: all ease .2s
     background-color: $links-color
   ul.pagination
-    margin: 2px 0 0 10px
+    margin: 8px 0 10px 0
     width: auto
+    justify-content: center
 
 // АДАПТИВ
-@media(min-width: 0) and (max-width: 767px)
+@media (min-width: 0) and (max-width: 767px)
   .content
-    padding-top: 200px
-    padding-bottom: 0
+    padding-top: 115px
+    padding-bottom: 150px
+    .tests-list:not(:last-of-type)
+      border-style: none none dashed
+      border-bottom: 1px dashed lighten($intface-panel-secondary-color, 20%)
   .header-element
     border-style: none
   .header-element-2
-    border-bottom: 1px dashed $intface-panel-secondary-color
-  .header-element-3
     border-right: 1px dashed $intface-panel-secondary-color
 
-@media(min-width:768px) and (max-width: 991px)
+@media (min-width: 768px) and (max-width: 991px)
   .content
-    padding-top: 200px
+    padding-top: 115px
     padding-bottom: 0
+    .tests-list
+      border-style: none
+      &:nth-of-type(1),
+      &:nth-of-type(2)
+        border-bottom: 1px dashed lighten($intface-panel-secondary-color, 20%)
+      &:nth-of-type(1),
+      &:nth-of-type(3)
+        border-right: 1px dashed lighten($intface-panel-secondary-color, 20%)
   .header-element
     border-style: none
-  .header-element-1
-    border-bottom: 1px dashed $intface-panel-secondary-color
-    border-right: 1px dashed $intface-panel-secondary-color
   .header-element-2
-    border-bottom: 1px dashed $intface-panel-secondary-color
-  .header-element-3
     border-right: 1px dashed $intface-panel-secondary-color
 
-@media(min-width:992px) and (max-width: 1199px)
+@media (min-width: 992px) and (max-width: 1199px)
   .content
-    padding-top: 120px
+    padding-top: 115px
     padding-bottom: 0
+    .tests-list
+      border-style: none
+      &:nth-of-type(1),
+      &:nth-of-type(2)
+        border-bottom: 1px dashed lighten($intface-panel-secondary-color, 20%)
+      &:nth-of-type(1),
+      &:nth-of-type(3)
+        border-right: 1px dashed lighten($intface-panel-secondary-color, 20%)
   .header-element
     border-style: none
   .header-element:not(:last-of-type)
     border-right: 1px dashed $intface-panel-secondary-color
 
-@media(min-width: 1200px)
+@media (min-width: 1200px)
   .content
     padding-top: 120px
     padding-bottom: 0
+    .tests-list:not(:last-of-type)
+      border-right: 1px dashed lighten($intface-panel-secondary-color, 20%)
   .header-element
     border-style: none
   .header-element:not(:last-of-type)

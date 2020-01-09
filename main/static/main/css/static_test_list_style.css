@@ -85,7 +85,8 @@ header {
     overflow: auto;
     padding: 0 4px; }
   header .header-element-1 {
-    padding-left: 10px; }
+    padding-left: 15px;
+    text-align: center; }
     header .header-element-1 * {
       color: #000e5c; }
     header .header-element-1 .logo {
@@ -101,8 +102,8 @@ header {
       line-height: 1.2;
       font-family: "Neucha", cursive; }
     header .header-element-1:hover .logo {
-      -webkit-animation-name: flash;
-              animation-name: flash; }
+      -webkit-animation-name: headShake;
+              animation-name: headShake; }
   header .header-element-2 h3 {
     margin: 5px 0 0 0; }
   header .header-element-2 input[type='search'] {
@@ -157,7 +158,8 @@ footer {
   z-index: 10;
   position: fixed; }
   footer .badge {
-    font-size: 1.2rem; }
+    font-size: 1.2rem;
+    margin: 2px; }
 
 .content a,
 .content .badge {
@@ -174,53 +176,63 @@ footer {
   transition: all ease 0.2s;
   background-color: #000e5c; }
 .content ul.pagination {
-  margin: 2px 0 0 10px;
-  width: auto; }
+  margin: 8px 0 10px 0;
+  width: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
 
-@media(min-width: 0) and (max-width: 767px) {
+@media (min-width: 0) and (max-width: 767px) {
   .content {
-    padding-top: 200px;
-    padding-bottom: 0; }
+    padding-top: 115px;
+    padding-bottom: 150px; }
+    .content .tests-list:not(:last-of-type) {
+      border-style: none none dashed;
+      border-bottom: 1px dashed #17b379; }
 
   .header-element {
     border-style: none; }
 
   .header-element-2 {
-    border-bottom: 1px dashed #0b583c; }
-
-  .header-element-3 {
     border-right: 1px dashed #0b583c; } }
-@media(min-width:768px) and (max-width: 991px) {
+@media (min-width: 768px) and (max-width: 991px) {
   .content {
-    padding-top: 200px;
+    padding-top: 115px;
     padding-bottom: 0; }
+    .content .tests-list {
+      border-style: none; }
+      .content .tests-list:nth-of-type(1), .content .tests-list:nth-of-type(2) {
+        border-bottom: 1px dashed #17b379; }
+      .content .tests-list:nth-of-type(1), .content .tests-list:nth-of-type(3) {
+        border-right: 1px dashed #17b379; }
 
   .header-element {
     border-style: none; }
 
-  .header-element-1 {
-    border-bottom: 1px dashed #0b583c;
-    border-right: 1px dashed #0b583c; }
-
   .header-element-2 {
-    border-bottom: 1px dashed #0b583c; }
-
-  .header-element-3 {
     border-right: 1px dashed #0b583c; } }
-@media(min-width:992px) and (max-width: 1199px) {
+@media (min-width: 992px) and (max-width: 1199px) {
   .content {
-    padding-top: 120px;
+    padding-top: 115px;
     padding-bottom: 0; }
+    .content .tests-list {
+      border-style: none; }
+      .content .tests-list:nth-of-type(1), .content .tests-list:nth-of-type(2) {
+        border-bottom: 1px dashed #17b379; }
+      .content .tests-list:nth-of-type(1), .content .tests-list:nth-of-type(3) {
+        border-right: 1px dashed #17b379; }
 
   .header-element {
     border-style: none; }
 
   .header-element:not(:last-of-type) {
     border-right: 1px dashed #0b583c; } }
-@media(min-width: 1200px) {
+@media (min-width: 1200px) {
   .content {
     padding-top: 120px;
     padding-bottom: 0; }
+    .content .tests-list:not(:last-of-type) {
+      border-right: 1px dashed #17b379; }
 
   .header-element {
     border-style: none; }

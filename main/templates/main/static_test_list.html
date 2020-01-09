@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Платформа для создания и прохождения тестов UserTests">
-    <title>Платформа для создания и прохождения тестов UserTests</title>
+    <title>UserTests</title>
     {% bootstrap_css %}
     <link href="https://fonts.googleapis.com/css?family=Cuprum|Neucha&subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'main/css/static_test_list_style.css' %}">
@@ -25,14 +25,14 @@
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 d-none d-md-block header-element header-element-1 animated infinite">
+                <div class="col-lg-3 d-none d-lg-block header-element header-element-1 animated infinite">
                     <a href="{% url 'static_test_list' %}">
-                        <div class="text-left logo animated infinite">UserTests</div>
+                        <div class="logo animated infinite">UserTests</div>
                         <p>Площадка для создания<br> и прохождения тестов</p>
                     </a>
                 </div>
 
-                <div class="col-lg-3 col-md-6 col-12 header-element header-element-2">
+                <div class="col-lg-3 col-md-6 col-6 header-element header-element-2">
                     <h3>Поиск тестов</h3>
                     <form name="search_form" action="POST">
 {% csrf_token %}
@@ -51,7 +51,7 @@
                     </form>
                 </div>
 
-                <div class="col-lg-2 col-md-6 col-6 header-element header-element-3">
+                <div class="col-lg-2 col-md-6 col-6 d-none d-lg-block header-element header-element-3">
 {% if user.is_authenticated %}
                     <div class="mx-auto text-center user-container">
                         <small><span>Пользователь: {{ user.username }}</span></small>
@@ -121,7 +121,7 @@
 
     <div class="content container">
         <div class="row">
-                <div class="col-lg-6 col-md-12 col-12 col-xl-3 tests-list">
+                <div class="col-lg-6 col-md-6 col-12 col-xl-3 tests-list">
                     <h2>
                         <a href="">НОВЫЕ ТЕСТЫ</a>
                     </h2>
@@ -144,25 +144,27 @@
                             </div>
                         </div>
                     </div>
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="">2</a></li>
-                        <li class="page-item"><a class="page-link" href="">3</a></li>
-                        <li class="page-item"><a class="page-link" href="">4</a></li>
-                        <li class="page-item"><a class="page-link" href="">5</a></li>
-                        <li class="page-item"><a class="page-link" href="">6</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="pagination-block">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="">2</a></li>
+                            <li class="page-item"><a class="page-link" href="">3</a></li>
+                            <li class="page-item"><a class="page-link" href="">4</a></li>
+                            <li class="page-item"><a class="page-link" href="">5</a></li>
+                            <li class="page-item"><a class="page-link" href="">6</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-lg-6 col-md-12 col-12 col-xl-3 tests-list">
+                <div class="col-lg-6 col-md-6 col-12 col-xl-3 tests-list">
                     <h2>
                         <a href="">ПОПУЛЯРНЫЕ ТЕСТЫ</a>
                     </h2>
@@ -184,25 +186,27 @@
                             </div>
                         </div>
                     </div>
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="">2</a></li>
-                        <li class="page-item"><a class="page-link" href="">3</a></li>
-                        <li class="page-item"><a class="page-link" href="">4</a></li>
-                        <li class="page-item"><a class="page-link" href="">5</a></li>
-                        <li class="page-item"><a class="page-link" href="">6</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="pagination-block">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="">2</a></li>
+                            <li class="page-item"><a class="page-link" href="">3</a></li>
+                            <li class="page-item"><a class="page-link" href="">4</a></li>
+                            <li class="page-item"><a class="page-link" href="">5</a></li>
+                            <li class="page-item"><a class="page-link" href="">6</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-lg-6 col-md-12 col-12 col-xl-3 tests-list">
+                <div class="col-lg-6 col-md-6 col-12 col-xl-3 tests-list">
                     <h2>
                         <a href="">ТЕСТЫ ПО КАТЕГОРИЯМ</a>
                     </h2>
@@ -213,25 +217,27 @@
                     <a class="category">Иностранные языки <span class="badge">(XXX штук)</span></a>
                     <a class="category">История <span class="badge">(XXX штук)</span></a>
                     <br>
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="">2</a></li>
-                        <li class="page-item"><a class="page-link" href="">3</a></li>
-                        <li class="page-item"><a class="page-link" href="">4</a></li>
-                        <li class="page-item"><a class="page-link" href="">5</a></li>
-                        <li class="page-item"><a class="page-link" href="">6</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="pagination-block">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="">2</a></li>
+                            <li class="page-item"><a class="page-link" href="">3</a></li>
+                            <li class="page-item"><a class="page-link" href="">4</a></li>
+                            <li class="page-item"><a class="page-link" href="">5</a></li>
+                            <li class="page-item"><a class="page-link" href="">6</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-lg-6 col-md-12 col-12 col-xl-3 tests-list">
+                <div class="col-lg-6 col-md-6 col-12 col-xl-3 tests-list">
                     <h2>
                         <a href="">ТЕСТЫ ПО ТЕГАМ</a>
                     </h2>
@@ -247,23 +253,25 @@
                     <a class="test">С лимитом времени <span class="badge">(XXX штук)</span></a>
                     <a class="test">Без лимита времени <span class="badge">(XXX штук)</span></a>
                     <br>
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="">2</a></li>
-                        <li class="page-item"><a class="page-link" href="">3</a></li>
-                        <li class="page-item"><a class="page-link" href="">4</a></li>
-                        <li class="page-item"><a class="page-link" href="">5</a></li>
-                        <li class="page-item"><a class="page-link" href="">6</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="pagination-block">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="">2</a></li>
+                            <li class="page-item"><a class="page-link" href="">3</a></li>
+                            <li class="page-item"><a class="page-link" href="">4</a></li>
+                            <li class="page-item"><a class="page-link" href="">5</a></li>
+                            <li class="page-item"><a class="page-link" href="">6</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
         </div>
     </div>
