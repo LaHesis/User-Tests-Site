@@ -94,8 +94,8 @@ header {
               animation-duration: 2s;
       font-family: "Neucha", cursive;
       font-size: 2.7rem;
-      margin-bottom: -10px;
-      margin-top: -5px; }
+      margin-bottom: -14px;
+      margin-top: -10px; }
     header .header-element-1 p {
       font-size: 150%;
       margin-bottom: 0;
@@ -105,15 +105,17 @@ header {
       -webkit-animation-name: headShake;
               animation-name: headShake; }
   header .header-element-2 h3 {
-    margin: 5px 0 0 0; }
+    font-size: 1.7rem;
+    margin: 0 0 -2px 0; }
   header .header-element-2 input[type='search'] {
+    min-width: 157px;
     width: 100%; }
   header .header-element-2 .search-buttons-div {
     padding: 2px; }
     header .header-element-2 .search-buttons-div .table-cell:first-child, header .header-element-2 .search-buttons-div .table-cell:last-child {
-      margin: 2px;
       width: 49%; }
     header .header-element-2 .search-buttons-div .table-cell .btn {
+      margin: 0;
       width: 100%; }
   header .header-element-3 img {
     height: 90px;
@@ -138,6 +140,7 @@ header {
     margin-bottom: 0;
     margin-top: 0; }
   header .header-element-4 .table-cell:nth-of-type(1) {
+    min-width: 80px;
     width: 50%; }
   header .header-element-4 .table-cell:nth-of-type(2) {
     width: 50%; }
