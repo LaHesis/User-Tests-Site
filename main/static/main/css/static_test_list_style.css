@@ -15,6 +15,8 @@ button[type='submit'] {
 a:hover, a:active, a:visited, a:link {
   color: #0f3628;
   text-decoration: none; }
+a:not(.btn):hover, a:not(.btn):active, a:not(.btn):visited, a:not(.btn):link {
+  color: #000e5c; }
 
 h1,
 h2,
@@ -108,7 +110,7 @@ header {
     font-size: 1.7rem;
     margin: 0 0 -2px 0; }
   header .header-element-2 input[type='search'] {
-    min-width: 157px;
+    min-width: 132px;
     width: 100%; }
   header .header-element-2 .search-buttons-div {
     padding: 2px; }
@@ -167,6 +169,15 @@ footer {
 .content a,
 .content .badge {
   cursor: pointer; }
+.content .tests-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
 .content .tests-list h2 a {
   font-family: inherit; }
 .content a.test:hover, .content a.category:hover, .content h2:hover a {
@@ -179,16 +190,18 @@ footer {
   transition: all ease 0.2s;
   background-color: #000e5c; }
 .content ul.pagination {
-  margin: 8px 0 10px 0;
-  width: auto;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
-          justify-content: center; }
+          justify-content: center;
+  margin: 8px 0 10px 0; }
+.content .pagination-block {
+  -ms-flex-item-align: end;
+      align-self: flex-end; }
 
 @media (min-width: 0) and (max-width: 767px) {
   .content {
-    padding-top: 115px;
-    padding-bottom: 150px; }
+    padding-top: 100px;
+    padding-bottom: 100px; }
     .content .tests-list:not(:last-of-type) {
       border-style: none none dashed;
       border-bottom: 1px dashed #17b379; }
@@ -200,7 +213,7 @@ footer {
     border-right: 1px dashed #0b583c; } }
 @media (min-width: 768px) and (max-width: 991px) {
   .content {
-    padding-top: 115px;
+    padding-top: 105px;
     padding-bottom: 0; }
     .content .tests-list {
       border-style: none; }

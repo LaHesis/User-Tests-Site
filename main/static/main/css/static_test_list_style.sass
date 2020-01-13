@@ -30,6 +30,13 @@ a
     color: $def-text-color
     text-decoration: none
 
+  &:not(.btn)
+    &:hover,
+    &:active,
+    &:visited,
+    &:link
+      color: $links-color
+
 // ЗАГОЛОВКИ
 h1,
 h2,
@@ -133,7 +140,7 @@ header
       margin: 0 0 -2px 0
     input
       &[type='search']
-        min-width: 157px
+        min-width: 132px
         width: 100%
     .search-buttons-div
       padding: 2px
@@ -197,11 +204,15 @@ footer
     font-size: 1.2rem
     margin: 2px
 
-// КОНТЕНТ
+// СПИСКИ ТЕСТОВ, ГЛАВНАЯ СТРАНИЦА
 .content
   a,
   .badge
     cursor: pointer
+  .tests-list
+    display: flex
+    justify-content: center
+    flex-wrap: wrap
   .tests-list h2 a
     font-family: inherit
   a.test:hover, a.category:hover, h2:hover a
@@ -212,15 +223,16 @@ footer
     transition: all ease .2s
     background-color: $links-color
   ul.pagination
-    margin: 8px 0 10px 0
-    width: auto
     justify-content: center
+    margin: 8px 0 10px 0
+  .pagination-block
+    align-self: flex-end
 
 // АДАПТИВ
 @media (min-width: 0) and (max-width: 767px)
   .content
-    padding-top: 115px
-    padding-bottom: 150px
+    padding-top: 100px
+    padding-bottom: 100px
     .tests-list:not(:last-of-type)
       border-style: none none dashed
       border-bottom: 1px dashed lighten($intface-panel-secondary-color, 20%)
@@ -231,7 +243,7 @@ footer
 
 @media (min-width: 768px) and (max-width: 991px)
   .content
-    padding-top: 115px
+    padding-top: 105px
     padding-bottom: 0
     .tests-list
       border-style: none
