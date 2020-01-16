@@ -5,11 +5,13 @@ $def-text-color: darken($intface-panel-bg-color, 80%)
 $links-color: #000e5c
 $intface-panel-secondary-color: saturate(darken($intface-panel-bg-color, 74%), 20%)
 $header-font: 'Neucha', cursive
+$main-font: 'Cuprum', sans-serif
+$mono-font: 'Roboto Mono', monospace
 
 // СБРОС СВОЙСТВ
 *
   color: $def-text-color
-  font-family: 'Cuprum', sans-serif
+  font-family: $main-font
   list-style: none
   margin: 0
   padding: 0
@@ -58,6 +60,8 @@ h6
     display: table-row
   .table-cell
     display: table-cell
+.mono-font, pre
+  font-family: $mono-font
 
 // КНОПКИ
 .btn
@@ -152,6 +156,7 @@ header
         .btn
           margin: 0
           width: 100%
+          padding: 2px
 
   .header-element-3
     img
@@ -165,8 +170,8 @@ header
 
   .header-element-4
     .all-buttons-container
-      padding: 2px
-      .system-users-button-container
+      .users-list-container
+        padding-top: 1px
         margin: 2px
         margin-top: 0
         min-width: 151px
@@ -202,8 +207,12 @@ footer
   width: 100%
   z-index: 10
   position: fixed
+  .btn,
   .badge
-    font-size: 1.2rem
+    padding: 4px 5px
+    line-height: normal
+    vertical-align: middle
+    font-size: .8rem
     margin: 2px
 
 // СПИСКИ ТЕСТОВ, ГЛАВНАЯ СТРАНИЦА
@@ -216,8 +225,9 @@ footer
     margin-left: 5px
   .tests-list
     display: flex
-    justify-content: center
     flex-wrap: wrap
+    justify-content: center
+    padding-bottom: 8px
     .t-wrapper
       margin: 0 5px 7px 0
   .tests-list h2 a
@@ -227,11 +237,6 @@ footer
     color: $links-color
   a.test:hover .badge, a.category:hover .badge
     background-color: $links-color
-  ul.pagination
-    justify-content: center
-    margin: 8px 0 10px 0
-  .pagination-block
-    align-self: flex-end
 
 // АДАПТИВ
 @media (min-width: 0) and (max-width: 767px)

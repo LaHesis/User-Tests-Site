@@ -9,8 +9,8 @@
     <meta name="description" content="Платформа для создания и прохождения тестов UserTests">
     <title>UserTests</title>
     {% bootstrap_css %}
-    <link href="https://fonts.googleapis.com/css?family=Cuprum|Neucha&subset=cyrillic" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{% static 'main/css/static_test_list_style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Cuprum|Neucha|Roboto+Mono&subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/static_test_lists_style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'main/css/animate.css' %}">
     {% bootstrap_javascript jquery='full' %}
 
@@ -26,7 +26,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 d-none d-lg-block header-element header-element-1 animated infinite">
-                    <a href="{% url 'static_test_list' %}">
+                    <a href="{% url 'static_test_lists' %}">
                         <div class="logo animated infinite">UserTests</div>
                         <p>Площадка для создания<br> и прохождения тестов</p>
                     </a>
@@ -40,11 +40,11 @@
                         <div class="search-buttons-div table mx-auto">
                             <div class="table-row">
                                 <div class="table-cell">
-                                    <button type="submit" class="btn btn-sm btn-light" role=submit>В названиях</button>
+                                    <button type="submit" class="btn btn-lg btn-light" role=submit>В названиях</button>
                                 </div>
                                 <div class="empty-gap-cell table-cell"></div>
                                 <div class="table-cell">
-                                    <button type="submit" class="btn btn-sm btn-light" role=submit>В вопросах</button>
+                                    <button type="submit" class="btn btn-lg btn-light" role=submit>В вопросах</button>
                                 </div>
                             </div>
                         </div>
@@ -89,8 +89,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="system-users-button-container">
-                            <a href="#" class="btn btn-light btn-sm">Пользователи системы</a>
+                        <div class="users-list-container">
+                            <a href="#" class="btn btn-light btn-sm">Пользователи сайта</a>
                         </div>
 {% else %}
                         <form name="login_form" method="POST">
@@ -107,8 +107,8 @@
                                         </div>
                                     </div>
                                     <div class="table-row">
-                                        <div class="table-cell"><a href="#" class="btn btn-light">Войти</a></div>
-                                        <div class="table-cell"><a href="#" class="btn btn-light">Регистрация</a></div>
+                                        <div class="table-cell"><a href="#" class="btn btn-light btn-lg">Войти</a></div>
+                                        <div class="table-cell"><a href="#" class="btn btn-light btn-lg">Регистрация</a></div>
                                     </div>
 {% endif %}
                             </div>
@@ -138,25 +138,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="pagination-block">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="">2</a></li>
-                            <li class="page-item"><a class="page-link" href="">3</a></li>
-                            <li class="page-item"><a class="page-link" href="">4</a></li>
-                            <li class="page-item"><a class="page-link" href="">5</a></li>
-                            <li class="page-item"><a class="page-link" href="">6</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12 col-xl-3 tests-list">
                     <h2>
@@ -178,25 +159,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="pagination-block">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="">2</a></li>
-                            <li class="page-item"><a class="page-link" href="">3</a></li>
-                            <li class="page-item"><a class="page-link" href="">4</a></li>
-                            <li class="page-item"><a class="page-link" href="">5</a></li>
-                            <li class="page-item"><a class="page-link" href="">6</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12 col-xl-3 tests-list">
                     <h2>
@@ -209,25 +171,6 @@
                         <a class="category">Биология<span class="badge">(XXX шт.)</span></a>
                         <a class="category">Иностранные языки<span class="badge">(XXX шт.)</span></a>
                         <a class="category">История<span class="badge">(XXX шт.)</span></a>
-                    </div>
-                    <div class="pagination-block">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="">2</a></li>
-                            <li class="page-item"><a class="page-link" href="">3</a></li>
-                            <li class="page-item"><a class="page-link" href="">4</a></li>
-                            <li class="page-item"><a class="page-link" href="">5</a></li>
-                            <li class="page-item"><a class="page-link" href="">6</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12 col-xl-3 tests-list">
@@ -247,25 +190,6 @@
                         <a class="test">С лимитом времени<span class="badge">(XXX шт.)</span></a>
                         <a class="test">Без лимита времени<span class="badge">(XXX шт.)</span></a>
                     </div>
-                    <div class="pagination-block">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="">2</a></li>
-                            <li class="page-item"><a class="page-link" href="">3</a></li>
-                            <li class="page-item"><a class="page-link" href="">4</a></li>
-                            <li class="page-item"><a class="page-link" href="">5</a></li>
-                            <li class="page-item"><a class="page-link" href="">6</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
         </div>
     </div>
@@ -280,9 +204,9 @@
                     <a href="" class="btn btn-sm btn-light">Пользовательское соглашение</a>
                     <a href="" class="btn btn-sm btn-light">Обратная связь</a>
                     <div class="general-statistics d-inline-block">
-                        <span class="badge">Тестов: XXX</span>
-                        <span class="badge">Категорий: XXX</span>
-                        <span class="badge">Тегов: XXX</span>
+                        <span class="badge mono-font">Тестов: XXX</span>
+                        <span class="badge mono-font">Категорий: XXX</span>
+                        <span class="badge mono-font">Тегов: XXX</span>
                     </div>
                 </div>
             </div>
