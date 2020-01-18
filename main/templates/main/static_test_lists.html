@@ -1,223 +1,87 @@
-{% load bootstrap4 %}
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Платформа для создания и прохождения тестов UserTests">
-    <title>UserTests</title>
-    {% bootstrap_css %}
-    <link href="https://fonts.googleapis.com/css?family=Cuprum|Neucha|Roboto+Mono&subset=cyrillic" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{% static 'main/css/static_test_lists_style.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'main/css/animate.css' %}">
-    {% bootstrap_javascript jquery='full' %}
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-</head>
-<body>
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 d-none d-lg-block header-element header-element-1 animated infinite">
-                    <a href="{% url 'static_test_lists' %}">
-                        <div class="logo animated infinite">UserTests</div>
-                        <p>Площадка для создания<br> и прохождения тестов</p>
-                    </a>
-                </div>
+{% block meta_description %}Платформа для создания и прохождения тестов UserTests{% endblock %}
 
-                <div class="col-lg-3 col-md-6 col-6 header-element header-element-2">
-                    <h3>Поиск тестов</h3>
-                    <form name="search_form" action="POST">
-{% csrf_token %}
-                        <input class="form-control" name="search" placeholder="Искать тесты с совпадениями" type="search">
-                        <div class="search-buttons-div table mx-auto">
-                            <div class="table-row">
-                                <div class="table-cell">
-                                    <button type="submit" class="btn btn-lg btn-light" role=submit>В названиях</button>
-                                </div>
-                                <div class="empty-gap-cell table-cell"></div>
-                                <div class="table-cell">
-                                    <button type="submit" class="btn btn-lg btn-light" role=submit>В вопросах</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+{% block title %}UserTests{% endblock %}
 
-                <div class="col-lg-2 col-md-6 col-6 d-none d-lg-block header-element header-element-3">
-{% if user.is_authenticated %}
-                    <div class="mx-auto text-center user-container">
-                        <small><span>Пользователь: {{ user.username }}</span></small>
-                        <div class="avatar-container mx-auto">
-                            <img class="img-thumbnail thumbnail" src="{% static 'main/img/default_avatar.png' %}">
-                        </div>
+{% block page_style %}
+    {% static 'main/css/static_test_lists_style.css' %}
+{% endblock %}
+
+{% block content %}
+<div class="content container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-12 col-xl-3 tests-list">
+            <h2>
+                <a href="">НОВЫЕ ТЕСТЫ</a>
+            </h2>
+
+            <div class="table">
+                <div class="table-row">
+                    <div class="table-cell">
+                        <div class="t-wrapper"><a class="test">Тест на тип темперамента</a></div>
+                        <div class="t-wrapper"><a class="test">Парадигмы программирования</a></div>
                     </div>
-{% else %}
-                    <small>
-                        <p>Вы в гостевом режиме.<br>Зарегистрируйтесь и войдите в систему для добавления тестов и
-                            просмотра статистики.</p>
-                    </small>
-{% endif %}
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-6 header-element header-element-4">
-                    <div class="all-buttons-container">
-{% if user.is_authenticated %}
-                        <div class="table mx-auto">
-                            <div class="table-row">
-                                <div class="table-cell">
-                                    <a href="#" class="btn btn-light btn-sm">Ваши тесты</a>
-                                </div>
-                                <div class="table-cell">
-                                    <a href="#" class="btn btn-light btn-sm">Новый тест</a>
-                                </div>
-                            </div>
-                            <div class="table-row">
-                                <div class="table-cell">
-                                    <a href="#" class="btn btn-light btn-sm">
-                                        Результаты</a>
-                                </div>
-                                <div class="table-cell">
-                                    <a href="#" class="btn btn-light btn-sm">Выйти</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="users-list-container">
-                            <a href="#" class="btn btn-light btn-sm">Пользователи сайта</a>
-                        </div>
-{% else %}
-                        <form name="login_form" method="POST">
-{% csrf_token %}
-                            <div class="table mx-auto">
-                                    <div class="table-row">
-                                        <div class="table-cell">
-                                            <label for="username">Логин:</label>
-                                            <input class="form-control" name="username" type="text">
-                                        </div>
-                                        <div class="table-cell">
-                                            <label for="password">Пароль:</label>
-                                            <input class="form-control" name="password" type="password">
-                                        </div>
-                                    </div>
-                                    <div class="table-row">
-                                        <div class="table-cell"><a href="#" class="btn btn-light btn-lg">Войти</a></div>
-                                        <div class="table-cell"><a href="#" class="btn btn-light btn-lg">Регистрация</a></div>
-                                    </div>
-{% endif %}
-                            </div>
-                        </form>
-                    </div>
-                </div> <!-- header-element end -->
-            </div> <!-- row flex end -->
-        </div> <!-- div.container end -->
-    </header>
-
-    <div class="content container">
-        <div class="row">
-                <div class="col-lg-6 col-md-6 col-12 col-xl-3 tests-list">
-                    <h2>
-                        <a href="">НОВЫЕ ТЕСТЫ</a>
-                    </h2>
-
-                    <div class="table">
-                        <div class="table-row">
-                            <div class="table-cell">
-                                <div class="t-wrapper"><a class="test">Тест на тип темперамента</a></div>
-                                <div class="t-wrapper"><a class="test">Парадигмы программирования</a></div>
-                            </div>
-                            <div class="table-cell">
-                                <div class="t-wrapper"><a class="test">Сети и телекоммуникации</a></div>
-                                <div class="t-wrapper"><a class="test">Информационные системы и технологии</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-12 col-xl-3 tests-list">
-                    <h2>
-                        <a href="">ПОПУЛЯРНЫЕ ТЕСТЫ</a>
-                    </h2>
-                    <div class="table">
-                        <div class="table-row">
-                            <div class="table-cell">
-                                <div class="t-wrapper"><a class="test">Анатомия человека</a></div>
-                                <div class="t-wrapper"><a class="test">Тест по географии</a></div>
-                                <div class="t-wrapper"><a class="test">Тест на тип темперамента</a></div>
-                                <div class="t-wrapper"><a class="test">Парадигмы программирования</a></div>
-                            </div>
-                            <div class="table-cell">
-                                <div class="t-wrapper"><a class="test">Философия буддизма</a></div>
-                                <div class="t-wrapper"><a class="test">Тест по кулинарии</a></div>
-                                <div class="t-wrapper"><a class="test">Сети и телекоммуникации</a></div>
-                                <div class="t-wrapper"><a class="test">Информационные системы и технологии</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-12 col-xl-3 tests-list">
-                    <h2>
-                        <a href="">ТЕСТЫ ПО КАТЕГОРИЯМ</a>
-                    </h2>
-                    <div>
-                        <a class="category">Обществознание<span class="badge">(XXX шт.)</span></a>
-                        <a class="category">Базы данных<span class="badge">(XXX шт.)</span></a>
-                        <a class="category">Психология<span class="badge">(XXX шт.)</span></a>
-                        <a class="category">Биология<span class="badge">(XXX шт.)</span></a>
-                        <a class="category">Иностранные языки<span class="badge">(XXX шт.)</span></a>
-                        <a class="category">История<span class="badge">(XXX шт.)</span></a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-12 col-xl-3 tests-list">
-                    <h2>
-                        <a href="">ТЕСТЫ ПО ТЕГАМ</a>
-                    </h2>
-                    <div>
-                        <a class="test">Образовательные<span class="badge">(XXX шт.)</span></a>
-                        <a class="test">Небольшие<span class="badge">(XXX шт.)</span></a>
-                        <a class="test">Большие<span class="badge">(XXX шт.)</span></a>
-                        <a class="test">Отношения<span class="badge">(XXX шт.)</span></a>
-                        <a class="test">Для школьников<span class="badge">(XXX шт.)</span></a>
-                        <a class="test">Для студентов<span class="badge">(XXX шт.)</span></a>
-                        <a class="test">Развлекательные<span class="badge">(XXX шт.)</span></a>
-                        <a class="test">На 10-15 минут<span class="badge">(XXX шт.)</span></a>
-                        <a class="test">На 20-30 минут<span class="badge">(XXX шт.)</span></a>
-                        <a class="test">С лимитом времени<span class="badge">(XXX шт.)</span></a>
-                        <a class="test">Без лимита времени<span class="badge">(XXX шт.)</span></a>
-                    </div>
-                </div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <a href="" class="btn btn-sm btn-light">О проекте</a>
-                    <a href="" class="btn btn-sm btn-light">Демо функционала</a>
-                    <a href="" class="btn btn-sm btn-light">Инструкция пользователя</a>
-                    <a href="" class="btn btn-sm btn-light">Пользовательское соглашение</a>
-                    <a href="" class="btn btn-sm btn-light">Обратная связь</a>
-                    <div class="general-statistics d-inline-block">
-                        <span class="badge mono-font">Тестов: XXX</span>
-                        <span class="badge mono-font">Категорий: XXX</span>
-                        <span class="badge mono-font">Тегов: XXX</span>
+                    <div class="table-cell">
+                        <div class="t-wrapper"><a class="test">Сети и телекоммуникации</a></div>
+                        <div class="t-wrapper"><a class="test">Информационные системы и технологии</a></div>
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
-
-    <script src="{% static 'main/js/jquery.nicescroll.min.js' %}"></script>
-    <script>
-        $(document).ready( function () {
-            $("body").niceScroll({ cursorcolor: "#030" });
-        });
-    </script>
-</body>
-</html>
+        <div class="col-lg-6 col-md-6 col-12 col-xl-3 tests-list">
+            <h2>
+                <a href="">ПОПУЛЯРНЫЕ ТЕСТЫ</a>
+            </h2>
+            <div class="table">
+                <div class="table-row">
+                    <div class="table-cell">
+                        <div class="t-wrapper"><a class="test">Анатомия человека</a></div>
+                        <div class="t-wrapper"><a class="test">Тест по географии</a></div>
+                        <div class="t-wrapper"><a class="test">Тест на тип темперамента</a></div>
+                        <div class="t-wrapper"><a class="test">Парадигмы программирования</a></div>
+                    </div>
+                    <div class="table-cell">
+                        <div class="t-wrapper"><a class="test">Философия буддизма</a></div>
+                        <div class="t-wrapper"><a class="test">Тест по кулинарии</a></div>
+                        <div class="t-wrapper"><a class="test">Сети и телекоммуникации</a></div>
+                        <div class="t-wrapper"><a class="test">Информационные системы и технологии</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12 col-xl-3 tests-list">
+            <h2>
+                <a href="">ТЕСТЫ ПО КАТЕГОРИЯМ</a>
+            </h2>
+            <div>
+                <a class="category">Обществознание<span class="badge">(XXX шт.)</span></a>
+                <a class="category">Базы данных<span class="badge">(XXX шт.)</span></a>
+                <a class="category">Психология<span class="badge">(XXX шт.)</span></a>
+                <a class="category">Биология<span class="badge">(XXX шт.)</span></a>
+                <a class="category">Иностранные языки<span class="badge">(XXX шт.)</span></a>
+                <a class="category">История<span class="badge">(XXX шт.)</span></a>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12 col-xl-3 tests-list">
+            <h2>
+                <a href="">ТЕСТЫ ПО ТЕГАМ</a>
+            </h2>
+            <div>
+                <a class="test">Образовательные<span class="badge">(XXX шт.)</span></a>
+                <a class="test">Небольшие<span class="badge">(XXX шт.)</span></a>
+                <a class="test">Большие<span class="badge">(XXX шт.)</span></a>
+                <a class="test">Отношения<span class="badge">(XXX шт.)</span></a>
+                <a class="test">Для школьников<span class="badge">(XXX шт.)</span></a>
+                <a class="test">Для студентов<span class="badge">(XXX шт.)</span></a>
+                <a class="test">Развлекательные<span class="badge">(XXX шт.)</span></a>
+                <a class="test">На 10-15 минут<span class="badge">(XXX шт.)</span></a>
+                <a class="test">На 20-30 минут<span class="badge">(XXX шт.)</span></a>
+                <a class="test">С лимитом времени<span class="badge">(XXX шт.)</span></a>
+                <a class="test">Без лимита времени<span class="badge">(XXX шт.)</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
