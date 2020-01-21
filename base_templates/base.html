@@ -94,8 +94,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="users-list-container">
-                            <a href="#" class="btn btn-light btn-sm">Пользователи сайта</a>
+                        <div class="users-list-button-container">
+                            <!-- If user is admin - Администрирование, if moderator - Модерирование -->
+                            <a href="#" class="btn btn-light btn-sm">Модерирование</a>
                         </div>
 {% else %}
                         <form name="login_form" method="POST">
@@ -135,8 +136,8 @@
                     <a href="" class="btn btn-sm btn-light">Демо функционала</a>
                     <a href="" class="btn btn-sm btn-light">Инструкция пользователя</a>
                     <a href="" class="btn btn-sm btn-light">Пользовательское соглашение</a>
-                    <a href="" class="btn btn-sm btn-light">Обратная связь</a>
-                    <div class="general-statistics d-inline-block">
+                    <a href="" class="btn btn-sm btn-light d-none d-md-inline-block">Обратная связь</a>
+                    <div class="general-statistics d-none d-md-inline-block">
                         <span class="badge mono-font">Тестов: XXX</span>
                         <span class="badge mono-font">Категорий: XXX</span>
                         <span class="badge mono-font">Тегов: XXX</span>

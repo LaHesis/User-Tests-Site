@@ -6,9 +6,6 @@
   .content .badge {
     margin-left: 5px; }
   .content .tests-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     padding-bottom: 8px; }
     .content .tests-list .t-wrapper {
       margin: 0 5px 7px 0; }
@@ -16,8 +13,8 @@
     font-family: inherit; }
   .content a.test:hover, .content a.category:hover, .content h2:hover a {
     font-weight: bold;
-    color: #000e5c; }
+    color: #000b4b; }
   .content a.test:hover .badge, .content a.category:hover .badge {
-    background-color: #000e5c; }
+    background-color: #000b4b; }
 
 /*# sourceMappingURL=static_test_lists_style.css.map */
